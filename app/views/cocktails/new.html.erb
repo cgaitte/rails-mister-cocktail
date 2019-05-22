@@ -1,0 +1,9 @@
+<div class="container">
+
+<h1>create your cocktail</h1>
+
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.input :name, label: "type your cocktail name", error: "please enter a name", placeholder: "cocktail name" %>
+  <%= f.submit "create you cocktail", class: "btn btn-primary" %>
+<% end %>
+</div>
