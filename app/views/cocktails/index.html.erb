@@ -1,21 +1,30 @@
-<div class="container">
-  <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
+<div class="container mb-4">
+ <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url('pexels-photo-1232152.jpeg') %>);">
+  <div class="container">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary" %>
   </div>
 </div>
 
+
 <% @cocktails.each do |cocktail| %>
-<span>  <%= cocktail.name %> </span>
+<div class="card-product my-5">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+  <div class="card-product-infos my-4">
+    <h2><%= cocktail.name %></h2>
+      <%  cocktail.doses.each do |dose| %>
+      <p><%= dose.description %> <strong><%= dose.ingredient.name%></strong>.</p>
+    <% end %>
+    <p><%= link_to "see cocktail", cocktail_path(cocktail) %></p>
+ </div>
+</div>
 <% end %>
 
-
-
+  <%= link_to root_path do  %>
+    <div >
+      <h1 class="btn btn-primary">see all cocktails</h1>
+    </div>
+  <% end  %>
 
 </div>
